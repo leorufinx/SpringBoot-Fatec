@@ -54,7 +54,16 @@ public class Produto {
 	}
 
 	public void setCusto(double custo) {
-		this.custo = custo;
+		try {
+			if (custo <= 0) {
+				throw new IllegalArgumentException("O custo não pode ser menor ou igual a 0");
+			} else {
+				this.custo = custo;
+			}
+		} catch (Exception e) {
+			throw new IllegalArgumentException("O custo não pode ser menor ou igual a 0");
+		}
+		
 	}
 
 	public int getQuantidadeNoEstoque() {
